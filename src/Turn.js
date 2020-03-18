@@ -1,17 +1,28 @@
-const data = require('./data');
-const prototypeQuestions = data.prototypeData;
-const util = require('./util');
 
 class Turn {
-  constuctor () {
-
+  constructor (guess, card) {
+    this.guess = guess;
+    this.card = card;
   }
+  returnGuess() {
+    return this.guess;
+  }
+  returnCard() {
+    return this.card;
+  }
+
+  evaluateGuess() {
+    return this.guess === this.card.correctAnswer;
+  }
+
+  giveFeedback() {
+    if (this.guess === this.card.correctAnser) {
+      return 'correct';
+    }
+    return 'incorrect';
+  }
+
 }
-
-
-
-
-
 
 
 
