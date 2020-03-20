@@ -26,6 +26,17 @@ class Round {
     return turn.giveFeedback();
   }
 
+  calculatePercentCorrect() {
+    return 100 * (1 - (this.incorrectGuesses.length / this.guesses.length));
+  }
+
+  endRound() {
+    var percentCorrect = this.calculatePercentCorrect();
+    var roundEndMessage = `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`
+
+    console.log(roundEndMessage);
+    return roundEndMessage;
+  }
 }
 
 module.exports = Round;
