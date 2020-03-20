@@ -6,6 +6,7 @@ class Round {
     this.turns = 0;
     this.guesses = [];
     this.incorrectGuesses = [];
+    this.start = new Date();
   }
 
   returnCurrentCard() {
@@ -33,10 +34,18 @@ class Round {
   endRound() {
     var percentCorrect = this.calculatePercentCorrect();
     var roundEndMessage = `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`
-
     console.log(roundEndMessage);
+    this.printTotalTime();
     return roundEndMessage;
   }
+
+  printTotalTime() {
+    let totalTime = new Date() - this.start;
+    console.log(`You have completed this round in ${Math.round(totalTime / 1000)} seconds!`);
+  }
+
 }
 
 module.exports = Round;
+
+// this.printTotalTime();
